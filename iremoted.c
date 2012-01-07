@@ -189,6 +189,7 @@ QueueCallbackFunction(void *target, IOReturn result, void *refcon, void *sender)
         if (!ret) {
             printf("%#lx %s\n", (UInt32)event.elementCookie,
                    (event.value == 0) ? "depressed" : "pressed");
+            fflush(stdout);
             if (event.value && driveKeynote) {
                 if (event.elementCookie == buttonNextID)
                     KeynoteChangeSlide(slideForward);
